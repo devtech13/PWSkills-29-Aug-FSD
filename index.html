@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube</title>
+    <style>
+        body {
+            perspective: 1080px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .scene {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            
+            animation: rotate 10s infinite linear;
+        }
+
+        .cube {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #3ca2cb;
+            opacity: 0.5;
+            border: 2px solid #020202;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: xx-large;
+            font-weight: 900;
+        }
+
+        .front  { transform: rotateX( 0deg) translateZ(100px); }
+        .back   { transform: rotateY(180deg) translateZ(100px); }
+        .right  { transform: rotateY( 90deg) translateZ(100px); }
+        .left   { transform: rotateY(-90deg) translateZ(100px); }
+        .top    { transform: rotateX( 90deg) translateZ(100px); }
+        .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+        @keyframes rotate {
+            from {
+                transform: rotateX(0deg) rotateY(0deg)  rotateZ(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="cube front">Front</div>
+        <div class="cube back">Back</div>
+        <div class="cube right">Right</div>
+        <div class="cube left">Left</div>
+        <div class="cube top">Top</div>
+        <div class="cube bottom">Bottom</div>
+    </div>
+</body>
+</html>
